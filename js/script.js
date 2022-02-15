@@ -28,4 +28,21 @@ function updatePrice(prodouctId, price) { // first receive product id second pri
     let total = document.getElementById('total-price')
     total.innerText = totalPrice
 }
+document.getElementById('apply-btn').addEventListener('click', function () {
+    let promoInput = document.getElementById('promo-input')
+    let promoCode = promoInput.value
+    promoInput.value = promoCode
+    if (promoInput.value == 'Raihan' && promoInput.value !== -1) {
+        let total = document.getElementById('total-price')
+        totalPrice = parseFloat(total.innerText)
+        let discount = totalPrice * 20 / 100
+        total.innerText = totalPrice - discount
+        let applyCoupon = document.getElementById('applied-text')
+        promoInput.value = applyCoupon.innerText
+    }
+    else {
+        let wrong = document.getElementById('wrong')
+        promoInput.value = wrong.innerText
+    }
+})
 
